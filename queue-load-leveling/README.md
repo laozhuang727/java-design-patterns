@@ -1,8 +1,8 @@
 ---
 layout: pattern
 title: Queue based load leveling
-folder: queue-load-leveling
-permalink: /patterns/queue-load-leveling/
+folder: queueList-load-leveling
+permalink: /patterns/queueList-load-leveling/
 pumlid: ROux3W8n30LxJW47IDnJxLLCOcM376VnP_VwX9xgZKOQwMtcg1w3RuykXQDIADztzyEU08fNRjttU8MHbYbEuhdC0PtZmfN26qzCbQmtIGUwauh1G5i0dw2Wn1DhOZg9kpGWB_zy3Xtv-FtOIEhQBm00
 categories: Other
 tags:
@@ -12,12 +12,12 @@ tags:
 ---
 
 ## Intent
-Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth 
+Use a queueList that acts as a buffer between a task and a service that it invokes in order to smooth 
 intermittent heavy loads that may otherwise cause the service to fail or the task to time out. 
 This pattern can help to minimize the impact of peaks in demand on availability and responsiveness 
 for both the task and the service.
 
-![alt text](./etc/queue-load-leveling.gif "queue-load-leveling")
+![alt text](./etc/queueList-load-leveling.gif "queueList-load-leveling")
 
 
 ## Applicability
@@ -26,7 +26,7 @@ for both the task and the service.
 * This pattern might not be suitable if the application expects a response from the service with minimal latency.
 
 ## Tutorials
-* [Queue-Based Load Leveling Pattern](http://java-design-patterns.com/blog/queue-load-leveling/)
+* [Queue-Based Load Leveling Pattern](http://java-design-patterns.com/blog/queueList-load-leveling/)
 
 ## Real world example
 

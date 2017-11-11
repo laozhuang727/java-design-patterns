@@ -20,31 +20,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.producer.consumer;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+package com.ryan;
 
 /**
- * Class as a channel for {@link Producer}-{@link Consumer} exchange.
+ * Customer Class responsible for producing unit of work that can be expressed as {@link Item} and submitted
+ * to queueList
  */
-public class ItemQueue {
+public class Producer {
+  private final int queueCount;
+  private ItemQueue[] queueList = null;
 
-  private BlockingQueue<Item> queue;
+  private final String name;
 
-  public ItemQueue() {
+  private int itemId;
 
-    queue = new LinkedBlockingQueue<>(5000);
+  /**
+   * Customer the producer with the random queue list
+   * @param name producer name
+   * @param queueList shared queueList
+   */
+  public Producer(String name, ItemQueue[] queueList) {
+    this.name = name;
+    this.queueList = queueList;
+    queueCount = queueList.length;
   }
 
-  public void put(Item item) throws InterruptedException {
+  /**
+   * Put item in the queueList
+   */
+  public void produce() throws InterruptedException {
 
-    queue.put(item);
+    Item item = new Item(name, itemId++);
+    int index = itemId % queueCount;
+    queueList[index].put(item);
+    //Random random = new Random();
+    //Thread.sleep(random.nextInt(2));
   }
-
-  public Item take() throws InterruptedException {
-
-    return queue.take();
-  }
-
 }

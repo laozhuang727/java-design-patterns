@@ -7,8 +7,8 @@ package com.iluwatar.poison.pill {
   class Consumer {
     - LOGGER : Logger {static}
     - name : String
-    - queue : MqSubscribePoint
-    + Consumer(name : String, queue : MqSubscribePoint)
+    - queueList : MqSubscribePoint
+    + Consumer(name : String, queueList : MqSubscribePoint)
     + consume()
   }
   interface Message {
@@ -37,8 +37,8 @@ package com.iluwatar.poison.pill {
     - LOGGER : Logger {static}
     - isStopped : boolean
     - name : String
-    - queue : MqPublishPoint
-    + Producer(name : String, queue : MqPublishPoint)
+    - queueList : MqPublishPoint
+    + Producer(name : String, queueList : MqPublishPoint)
     + send(body : String)
     + stop()
   }
@@ -53,16 +53,16 @@ package com.iluwatar.poison.pill {
     + setBody(body : String)
   }
   class SimpleMessageQueue {
-    - queue : BlockingQueue<Message>
+    - queueList : BlockingQueue<Message>
     + SimpleMessageQueue(bound : int)
     + put(msg : Message)
     + take() : Message
   }
 }
-SimpleMessageQueue -->  "-queue" Message
-Consumer -->  "-queue" MqSubscribePoint
+SimpleMessageQueue -->  "-queueList" Message
+Consumer -->  "-queueList" MqSubscribePoint
 Headers ..+ Message
-Producer -->  "-queue" MqPublishPoint
+Producer -->  "-queueList" MqPublishPoint
 Message -->  "-POISON_PILL" Message
 MessageQueue --|> MqPublishPoint 
 MessageQueue --|> MqSubscribePoint 

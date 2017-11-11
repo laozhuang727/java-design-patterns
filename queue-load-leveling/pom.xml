@@ -31,7 +31,7 @@
     <artifactId>java-design-patterns</artifactId>
     <version>1.18.0-SNAPSHOT</version>
   </parent>
-  <artifactId>queue-load-leveling</artifactId>
+  <artifactId>queueList-load-leveling</artifactId>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

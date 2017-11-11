@@ -28,4 +28,4 @@ Use the Object Mother pattern when
 
 * [c2wiki - Object Mother](http://c2.com/cgi/wiki?ObjectMother)
 
-* [Nat Pryce - Test Data Builders: an alternative to the Object Mother pattern](http://www.natpryce.com/articles/000714.html)
+* [Nat Pryce - TestConnectionPool Data Builders: an alternative to the Object Mother pattern](http://www.natpryce.com/articles/000714.html)

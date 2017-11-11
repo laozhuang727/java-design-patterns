@@ -20,8 +20,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.producer.consumer;
+package com.ryan;
 
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -40,6 +41,7 @@ import org.slf4j.LoggerFactory;
  */
 public class App {
 
+  public static final int QUEUE_COUNT = 10;
   private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
   /**
@@ -50,12 +52,15 @@ public class App {
    */
   public static void main(String[] args) {
 
-    ItemQueue queue = new ItemQueue();
-
+    ItemQueue[] queueList = new ItemQueue[QUEUE_COUNT];
+    for (int i = 0; i < QUEUE_COUNT; i++) {
+      queueList[i] = new ItemQueue();
+    }
+    Random random = new Random();
     ExecutorService executorService = Executors.newFixedThreadPool(100);
     for (int i = 0; i < 40; i++) {
 
-      final Producer producer = new Producer("Producer_" + i, queue);
+      final Producer producer = new Producer("Producer_" + i, queueList);
       executorService.submit(() -> {
         while (true) {
           producer.produce();
@@ -64,10 +69,11 @@ public class App {
     }
 
     for (int i = 0; i < 30; i++) {
-      final Consumer consumer = new Consumer("Consumer_" + i, queue);
+      final Consumer consumer = new Consumer("Consumer_" + i, queueList);
       executorService.submit(() -> {
         while (true) {
-          consumer.consume();
+          int queueIndex = random.nextInt(QUEUE_COUNT);
+          consumer.consume(queueIndex);
         }
       });
     }

@@ -47,6 +47,7 @@
         <mongo-java-driver.version>3.3.0</mongo-java-driver.version>
         <slf4j.version>1.7.21</slf4j.version>
         <logback.version>1.1.7</logback.version>
+        <lombok.version>1.16.18</lombok.version>
     </properties>
     <modules>
         <module>abstract-factory</module>
@@ -133,8 +134,6 @@
         <module>promise</module>
         <module>page-object</module>
         <module>event-asynchronous</module>
-        <module>event-queue</module>
-        <module>queue-load-leveling</module>
         <module>object-mother</module>
         <module>data-bus</module>
         <module>converter</module>
@@ -260,6 +259,12 @@
                 <artifactId>mongo-java-driver</artifactId>
                 <version>${mongo-java-driver.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -278,6 +283,11 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.3-jre</version>
         </dependency>
     </dependencies>
 

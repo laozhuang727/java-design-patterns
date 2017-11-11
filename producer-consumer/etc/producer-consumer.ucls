@@ -43,7 +43,7 @@
   </class>  
   <association id="5">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="6" name="queue"/>      
+      <attribute id="6" name="queueList"/>
       <multiplicity id="7" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
@@ -51,7 +51,7 @@
   </association>  
   <association id="8">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="9" name="queue"/>      
+      <attribute id="9" name="queueList"/>
       <multiplicity id="10" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
@@ -59,7 +59,7 @@
   </association>  
   <association id="11">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="12" name="queue"/>      
+      <attribute id="12" name="queueList"/>
       <multiplicity id="13" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    

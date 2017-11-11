@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.iluwatar.event.queue.Audio" project="event-queue" 
-    file="/event-queue/src/main/java/com/iluwatar/event/queue/Audio.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.iluwatar.event.queueList.Audio" project="event-queueList"
+    file="/event-queueList/src/main/java/com/iluwatar/event/queueList/Audio.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="-1" width="-1" x="285" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.iluwatar.event.queue.PlayMessage" project="event-queue" 
-    file="/event-queue/src/main/java/com/iluwatar/event/queue/PlayMessage.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="com.iluwatar.event.queueList.PlayMessage" project="event-queueList"
+    file="/event-queueList/src/main/java/com/iluwatar/event/queueList/PlayMessage.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="-1" width="-1" x="633" y="179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

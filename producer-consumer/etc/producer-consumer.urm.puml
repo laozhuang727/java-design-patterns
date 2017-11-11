@@ -8,8 +8,8 @@ package com.iluwatar.producer.consumer {
   class Consumer {
     - LOGGER : Logger {static}
     - name : String
-    - queue : ItemQueue
-    + Consumer(name : String, queue : ItemQueue)
+    - queueList : ItemQueue
+    + Consumer(name : String, queueList : ItemQueue)
     + consume()
   }
   class Item {
@@ -20,7 +20,7 @@ package com.iluwatar.producer.consumer {
     + getProducer() : String
   }
   class ItemQueue {
-    - queue : BlockingQueue<Item>
+    - queueList : BlockingQueue<Item>
     + ItemQueue()
     + put(item : Item)
     + take() : Item
@@ -28,12 +28,12 @@ package com.iluwatar.producer.consumer {
   class Producer {
     - itemId : int
     - name : String
-    - queue : ItemQueue
-    + Producer(name : String, queue : ItemQueue)
+    - queueList : ItemQueue
+    + Producer(name : String, queueList : ItemQueue)
     + produce()
   }
 }
-Consumer -->  "-queue" ItemQueue
-Producer -->  "-queue" ItemQueue
-ItemQueue -->  "-queue" Item
+Consumer -->  "-queueList" ItemQueue
+Producer -->  "-queueList" ItemQueue
+ItemQueue -->  "-queueList" Item
 @enduml

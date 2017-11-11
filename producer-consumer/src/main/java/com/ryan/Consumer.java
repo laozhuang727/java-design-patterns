@@ -20,31 +20,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.producer.consumer;
+package com.ryan;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
- * Class as a channel for {@link Producer}-{@link Consumer} exchange.
+ * Customer Class responsible for consume the {@link Item} produced by {@link Producer}
  */
-public class ItemQueue {
+public class Consumer {
 
-  private BlockingQueue<Item> queue;
+  private static final Logger LOGGER = LoggerFactory.getLogger(Consumer.class);
 
-  public ItemQueue() {
+  private ItemQueue[] queueList = null;
 
-    queue = new LinkedBlockingQueue<>(5000);
+  private final String name;
+
+  private final int queueCount;
+
+  /**
+   * Customer the Consumer with the random queue list
+   * @param name Consumer name
+   * @param queueList shared queueList
+   */
+  public Consumer(String name, ItemQueue[] queueList) {
+    this.name = name;
+    this.queueList = queueList;
+    queueCount = queueList.length;
   }
 
-  public void put(Item item) throws InterruptedException {
+  /**
+   * Consume item from the queue
+   */
+  public void consume(int queueIndex) throws InterruptedException {
+    checkArgument(queueIndex < queueCount);
 
-    queue.put(item);
+    Item item = queueList[queueIndex].take();
+    Thread.sleep(100);
+    LOGGER.info("Consumer [{}] consume item [{}] produced by [{}]", name, item.getId(), item.getProducer());
+
   }
-
-  public Item take() throws InterruptedException {
-
-    return queue.take();
-  }
-
 }

@@ -1,5 +1,5 @@
 @startuml
-package com.iluwatar.event.queue {
+package com.iluwatar.event.queueList {
   class App {
     + App()
     + getAudioStream(filePath : String) : AudioInputStream {static}

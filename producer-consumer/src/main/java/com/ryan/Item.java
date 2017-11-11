@@ -20,31 +20,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.producer.consumer;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+package com.ryan;
 
 /**
- * Class as a channel for {@link Producer}-{@link Consumer} exchange.
+ * Class take part of an {@link Producer}-{@link Consumer} exchange.
  */
-public class ItemQueue {
+public class Item {
 
-  private BlockingQueue<Item> queue;
+  private String producer;
 
-  public ItemQueue() {
+  private int id;
 
-    queue = new LinkedBlockingQueue<>(5000);
+  public Item(String producer, int id) {
+    this.id = id;
+    this.producer = producer;
   }
 
-  public void put(Item item) throws InterruptedException {
+  public int getId() {
 
-    queue.put(item);
+    return id;
   }
 
-  public Item take() throws InterruptedException {
+  public String getProducer() {
 
-    return queue.take();
+    return producer;
   }
 
 }
